@@ -8,7 +8,7 @@ from datetime import datetime
 client_id = 'c5c313824e2d4d55af503c4fcde096ab'
 client_secret = 'b9d0930596134732a657981a7bcaab69'
 redirect_uri = 'http://localhost:8888/callback'
-
+username = ""
 client_credentials_manager = SpotifyClientCredentials(client_id,client_secret)
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
@@ -23,16 +23,16 @@ def createPlaylistShort():
       deleteID = playlist['id']
       break
   if deleteID != '':
-    sp.user_playlist_unfollow(user='fillerbil',playlist_id=deleteID)
+    sp.user_playlist_unfollow(user=username,playlist_id=deleteID)
 
 
   topTracks = sp.current_user_top_tracks(limit=50, offset=0, time_range='short_term')
   trackIDs = []
   for track in topTracks['items']:
     trackIDs.append(track['id'])
-  newPlaylist = sp.user_playlist_create(user='fillerbil',name='Top 50 Tracks - 4 Weeks',public=True)
+  newPlaylist = sp.user_playlist_create(user=username,name='Top 50 Tracks - 4 Weeks',public=True)
   # print newPlaylist
-  sp.user_playlist_add_tracks(user='fillerbil',playlist_id=newPlaylist['id'],tracks=trackIDs,position=None)
+  sp.user_playlist_add_tracks(user=username,playlist_id=newPlaylist['id'],tracks=trackIDs,position=None)
 
 def createPlaylistMedium():
   userPlaylists = sp.current_user_playlists(limit=50,offset=0)
@@ -42,15 +42,15 @@ def createPlaylistMedium():
       deleteID = playlist['id']
       break
   if deleteID != '':
-    sp.user_playlist_unfollow(user='fillerbil',playlist_id=deleteID)
+    sp.user_playlist_unfollow(user=username,playlist_id=deleteID)
 
   topTracks = sp.current_user_top_tracks(limit=50, offset=0, time_range='medium_term')
   trackIDs = []
   for track in topTracks['items']:
     trackIDs.append(track['id'])
-  newPlaylist = sp.user_playlist_create(user='fillerbil',name='Top 50 Tracks - 6 Months',public=True)
+  newPlaylist = sp.user_playlist_create(user=username,name='Top 50 Tracks - 6 Months',public=True)
   # print newPlaylist
-  sp.user_playlist_add_tracks(user='fillerbil',playlist_id=newPlaylist['id'],tracks=trackIDs,position=None)
+  sp.user_playlist_add_tracks(user=username,playlist_id=newPlaylist['id'],tracks=trackIDs,position=None)
 
 def createPlaylistLong():
   userPlaylists = sp.current_user_playlists(limit=50,offset=0)
@@ -60,15 +60,15 @@ def createPlaylistLong():
       deleteID = playlist['id']
       break
   if deleteID != '':
-    sp.user_playlist_unfollow(user='fillerbil',playlist_id=deleteID)
+    sp.user_playlist_unfollow(user=username,playlist_id=deleteID)
 
   topTracks = sp.current_user_top_tracks(limit=50, offset=0, time_range='long_term')
   trackIDs = []
   for track in topTracks['items']:
     trackIDs.append(track['id'])
-  newPlaylist = sp.user_playlist_create(user='fillerbil',name='Top 50 Tracks - Few Years',public=True)
+  newPlaylist = sp.user_playlist_create(user=username,name='Top 50 Tracks - Few Years',public=True)
   # print newPlaylist
-  sp.user_playlist_add_tracks(user='fillerbil',playlist_id=newPlaylist['id'],tracks=trackIDs,position=None)
+  sp.user_playlist_add_tracks(user=username,playlist_id=newPlaylist['id'],tracks=trackIDs,position=None)
 
 def createRAndBPlaylistMedium():
   userPlaylists = sp.current_user_playlists(limit=50,offset=0)
@@ -78,15 +78,15 @@ def createRAndBPlaylistMedium():
       deleteID = playlist['id']
       break
   if deleteID != '':
-    sp.user_playlist_unfollow(user='fillerbil',playlist_id=deleteID)
+    sp.user_playlist_unfollow(user=username,playlist_id=deleteID)
 
   topTracks = sp.current_user_top_tracks(limit=50, offset=0, time_range='medium_term')
   trackIDs = []
   for track in topTracks['items']:
     trackIDs.append(track['id'])
-  newPlaylist = sp.user_playlist_create(user='fillerbil',name='Top 50 Tracks - 6 Months',public=True)
+  newPlaylist = sp.user_playlist_create(user=username,name='Top 50 Tracks - 6 Months',public=True)
   # print newPlaylist
-  sp.user_playlist_add_tracks(user='fillerbil',playlist_id=newPlaylist['id'],tracks=trackIDs,position=None)
+  sp.user_playlist_add_tracks(user=username,playlist_id=newPlaylist['id'],tracks=trackIDs,position=None)
 
 
 
